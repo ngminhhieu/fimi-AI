@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from server.routes.sensor import router as SensorRouter
+from server.routes.sensor import router as CalibrationRouter
 from server.routes.forecasting import router as ForecastingRouter
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -16,7 +16,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(SensorRouter, tags=["Sensor"], prefix="/sensor")
+app.include_router(CalibrationRouter, tags=["Calibration"], prefix="/calibration")
 app.include_router(ForecastingRouter, tags=["Forecasting"], prefix="/forecasting")
 
 
